@@ -327,9 +327,86 @@
   {
     "objectID": "Cleansing_Projects/project5.html",
     "href": "Cleansing_Projects/project5.html",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - The War with Star Wars",
     "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
+    "text": "Show the code\nimport pandas as pd \nimport numpy as np\nfrom lets_plot import *\n# add the additional libraries you need to import for ML here\n\nLetsPlot.setup_html(isolated_frame=True)\nShow the code\n# Learn morea about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html\n\n# import your data here using pandas and the URL\nurl = 'https://github.com/fivethirtyeight/data/raw/master/star-wars-survey/StarWars.csv'\ndf = pd.read_csv(url, encoding=\"ISO-8859-1\")",
+    "crumbs": [
+      "Data Cleansing",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Cleansing_Projects/project5.html#elevator-pitch",
+    "href": "Cleansing_Projects/project5.html#elevator-pitch",
+    "title": "Client Report - The War with Star Wars",
+    "section": "Elevator pitch",
+    "text": "Elevator pitch\nA SHORT (2-3 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS. (Note: this is not a summary of the project, but a summary of the results.)\nA Client has requested this analysis and this is your one shot of what you would say to your boss in a 2 min elevator ride before he takes your report and hands it to the client.",
+    "crumbs": [
+      "Data Cleansing",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Cleansing_Projects/project5.html#questiontask-1",
+    "href": "Cleansing_Projects/project5.html#questiontask-1",
+    "title": "Client Report - The War with Star Wars",
+    "section": "QUESTION|TASK 1",
+    "text": "QUESTION|TASK 1\nShorten the column names and clean them up for easier use with pandas. Provide a table or list that exemplifies how you fixed the names.\nHere I’m showing the first row of the data instead of the columns. The columns just listed as “Response” have their full context in the original columns names. For those, I simply shortened them so I would have an easier time working with them. They were long.\n\n\nShow the code\ndf = pd.read_csv(url, encoding=\"ISO-8859-1\")\n\nnew_titles = [\"id\",\"has_seen_sw\",\"is_sw_fan\",\n    \"seen_1\", \"seen_2\", \"seen_3\", \"seen_4\", \"seen_5\", \"seen_6\",\n    \"rank_1\", \"rank_2\", \"rank_3\", \"rank_4\", \"rank_5\", \"rank_6\",\n    \"han\",\"luke\",\"leia\",\"anakin\",\"obi\",\"palp\",\"vader\",\"lando\",\"boba\",\n    \"c3\",\"r2\",\"jar\",\"padme\",\"yoda\",\"shot_first\",\"familiar_eu\",\"fan_of_eu\",\n    \"trekkie\",\"gender\",\"age\",\"house_income\",\"education\",\"location\"]\n\ntemp_columns = df[1:].reset_index(drop=True)\ntemp_columns.columns = df.iloc[0]\nfixed_names = pd.DataFrame({\"First Row Columns\":df.iloc[0].values, \"New Column Names\": new_titles})\nprint(fixed_names)\n\nfor col_num in range(len(df.columns)):\n  df = df.rename(columns={df.columns[col_num]: new_titles[col_num]})\n\n# Remove the first row\ndf = df.iloc[1:].reset_index(drop=True)\n\n\n                               First Row Columns New Column Names\n0                                            NaN               id\n1                                       Response      has_seen_sw\n2                                       Response        is_sw_fan\n3       Star Wars: Episode I  The Phantom Menace           seen_1\n4    Star Wars: Episode II  Attack of the Clones           seen_2\n5    Star Wars: Episode III  Revenge of the Sith           seen_3\n6              Star Wars: Episode IV  A New Hope           seen_4\n7   Star Wars: Episode V The Empire Strikes Back           seen_5\n8       Star Wars: Episode VI Return of the Jedi           seen_6\n9       Star Wars: Episode I  The Phantom Menace           rank_1\n10   Star Wars: Episode II  Attack of the Clones           rank_2\n11   Star Wars: Episode III  Revenge of the Sith           rank_3\n12             Star Wars: Episode IV  A New Hope           rank_4\n13  Star Wars: Episode V The Empire Strikes Back           rank_5\n14      Star Wars: Episode VI Return of the Jedi           rank_6\n15                                      Han Solo              han\n16                                Luke Skywalker             luke\n17                          Princess Leia Organa             leia\n18                              Anakin Skywalker           anakin\n19                                Obi Wan Kenobi              obi\n20                             Emperor Palpatine             palp\n21                                   Darth Vader            vader\n22                              Lando Calrissian            lando\n23                                     Boba Fett             boba\n24                                         C-3P0               c3\n25                                         R2 D2               r2\n26                                 Jar Jar Binks              jar\n27                                 Padme Amidala            padme\n28                                          Yoda             yoda\n29                                      Response       shot_first\n30                                      Response      familiar_eu\n31                                      Response        fan_of_eu\n32                                      Response          trekkie\n33                                      Response           gender\n34                                      Response              age\n35                                      Response     house_income\n36                                      Response        education\n37                                      Response         location",
+    "crumbs": [
+      "Data Cleansing",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Cleansing_Projects/project5.html#questiontask-2",
+    "href": "Cleansing_Projects/project5.html#questiontask-2",
+    "title": "Client Report - The War with Star Wars",
+    "section": "QUESTION|TASK 2",
+    "text": "QUESTION|TASK 2\nClean and format the data so that it can be used in a machine learning model. As you format the data, you should complete each item listed below. In your final report provide example(s) of the reformatted data with a short description of the changes made.\na. Filter the dataset to respondents that have seen at least one film\na. Create a new column that converts the age ranges to a single number. Drop the age range categorical column\na. Create a new column that converts the education groupings to a single number. Drop the school categorical column\na. Create a new column that converts the income ranges to a single number. Drop the income range categorical column\na. Create your target (also known as “y” or “label”) column based on the new income range column a. One-hot encode all remaining categorical columns\ntype your results and analysis here\n\n\nShow the code\nseen = df[df[\"has_seen_sw\"] == \"Yes\"]\nseen[\"age\"] = seen[\"age\"].str.split(\"-\").str[1]\neds = {\"high school degree\": \"1\",\n       \"some college or associate degree\": \"2\",\n       \"bachelor degree\": \"3\",\n       \"nan\": \"0\",\n       \"graduate degree\": \"4\"}\nseen[\"education\"] = seen[\"education\"].str.lower().map(eds).fillna(\"0\").astype(int)\nseen[\"house_income\"] = seen[\"house_income\"].str.replace(r\"[\\$,+]\",\"\", regex=True).str.split(\" \").str[0]\nseen[\"house_income\"] = seen[\"house_income\"].fillna(-1).astype(int)\nseen[\"location\"] = seen[\"location\"].fillna(\"unknown\")\nseen = pd.get_dummies(seen, columns = [\"location\", \"rank_1\", \"rank_2\",\"rank_3\"])\nfor i in range(1,7):\n  seen[\"seen_\" + str(i)] = seen[\"seen_\" + str(i)].notna()",
+    "crumbs": [
+      "Data Cleansing",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Cleansing_Projects/project5.html#questiontask-3",
+    "href": "Cleansing_Projects/project5.html#questiontask-3",
+    "title": "Client Report - The War with Star Wars",
+    "section": "QUESTION|TASK 3",
+    "text": "QUESTION|TASK 3\nValidate that the data provided on GitHub lines up with the article by recreating 2 of the visuals from the article.\ntype your results and analysis here\n\n\nShow the code\n# Include and execute your code here\n\n\n\n\nShow the code\n# Include and execute your code here",
+    "crumbs": [
+      "Data Cleansing",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Cleansing_Projects/project5.html#questiontask-4",
+    "href": "Cleansing_Projects/project5.html#questiontask-4",
+    "title": "Client Report - The War with Star Wars",
+    "section": "QUESTION|TASK 4",
+    "text": "QUESTION|TASK 4\nBuild a machine learning model that predicts whether a person makes more than $50k. Describe your model and report the accuracy.\ntype your results and analysis here\n\n\nShow the code\n# Include and execute your code here",
+    "crumbs": [
+      "Data Cleansing",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Cleansing_Projects/project5.html#stretch-questiontask-1",
+    "href": "Cleansing_Projects/project5.html#stretch-questiontask-1",
+    "title": "Client Report - The War with Star Wars",
+    "section": "STRETCH QUESTION|TASK 1",
+    "text": "STRETCH QUESTION|TASK 1\nBuild a machine learning model that predicts whether a person makes more than $50k. With accuracy of at least 65%. Describe your model and report the accuracy.\ntype your results and analysis here\n\n\nShow the code\n# Include and execute your code here",
+    "crumbs": [
+      "Data Cleansing",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Cleansing_Projects/project5.html#other-stretch-questions-have-been-skipped",
+    "href": "Cleansing_Projects/project5.html#other-stretch-questions-have-been-skipped",
+    "title": "Client Report - The War with Star Wars",
+    "section": "OTHER STRETCH QUESTIONS HAVE BEEN SKIPPED!",
+    "text": "OTHER STRETCH QUESTIONS HAVE BEEN SKIPPED!",
     "crumbs": [
       "Data Cleansing",
       "Project 5"

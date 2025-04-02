@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="[STUDENT NAME]">
+<meta name="author" content="David Wells">
 
-<title>Client Report - [Insert Project Title] – David Wells - Data Science Portfolio</title>
+<title>Client Report - The War with Star Wars – David Wells - Data Science Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -4788,7 +4822,7 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-right">
-      <h1 class="title">Client Report - [Insert Project Title]</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Client Report - The War with Star Wars</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> See code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
             <p class="subtitle lead">Course DS 250</p>
                       </div>
   </div>
@@ -4799,7 +4833,7 @@ vertical-align: -.125em;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>[STUDENT NAME] </p>
+               <p>David Wells </p>
             </div>
     </div>
       
@@ -4872,11 +4906,182 @@ vertical-align: -.125em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#paste-in-a-template" id="toc-paste-in-a-template">Paste in a template</a></li>
+  <li><a href="#elevator-pitch" id="toc-elevator-pitch">Elevator pitch</a></li>
+  <li><a href="#questiontask-1" id="toc-questiontask-1">QUESTION|TASK 1</a></li>
+  <li><a href="#questiontask-2" id="toc-questiontask-2">QUESTION|TASK 2</a></li>
+  <li><a href="#questiontask-3" id="toc-questiontask-3">QUESTION|TASK 3</a></li>
+  <li><a href="#questiontask-4" id="toc-questiontask-4">QUESTION|TASK 4</a></li>
+  <li><a href="#stretch-questiontask-1" id="toc-stretch-questiontask-1">STRETCH QUESTION|TASK 1</a></li>
+  <li><a href="#other-stretch-questions-have-been-skipped" id="toc-other-stretch-questions-have-been-skipped">OTHER STRETCH QUESTIONS HAVE BEEN SKIPPED!</a></li>
   </ul>
 </nav>
-<section id="paste-in-a-template" class="level3">
-<h3 class="anchored" data-anchor-id="paste-in-a-template">Paste in a template</h3>
+<div id="02199870" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lets_plot <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add the additional libraries you need to import for ML here</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>LetsPlot.setup_html(isolated_frame<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="fffd32a1" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Learn morea about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import your data here using pandas and the URL</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;https://github.com/fivethirtyeight/data/raw/master/star-wars-survey/StarWars.csv&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url, encoding<span class="op">=</span><span class="st">&quot;ISO-8859-1&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="elevator-pitch" class="level2">
+<h2 class="anchored" data-anchor-id="elevator-pitch">Elevator pitch</h2>
+<p><em>A SHORT (2-3 SENTENCES) PARAGRAPH THAT <code>DESCRIBES KEY INSIGHTS</code> TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.</em> (Note: this is not a summary of the project, but a summary of the results.)</p>
+<p><em>A Client has requested this analysis and this is your one shot of what you would say to your boss in a 2 min elevator ride before he takes your report and hands it to the client.</em></p>
+</section>
+<section id="questiontask-1" class="level2">
+<h2 class="anchored" data-anchor-id="questiontask-1">QUESTION|TASK 1</h2>
+<p><strong>Shorten the column names and clean them up for easier use with pandas.</strong> Provide a table or list that exemplifies how you fixed the names.</p>
+<p>Here I’m showing the first row of the data instead of the columns. The columns just listed as “Response” have their full context in the original columns names. For those, I simply shortened them so I would have an easier time working with them. They were long.</p>
+<div id="8cff53ee" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url, encoding<span class="op">=</span><span class="st">&quot;ISO-8859-1&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>new_titles <span class="op">=</span> [<span class="st">&quot;id&quot;</span>,<span class="st">&quot;has_seen_sw&quot;</span>,<span class="st">&quot;is_sw_fan&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;seen_1&quot;</span>, <span class="st">&quot;seen_2&quot;</span>, <span class="st">&quot;seen_3&quot;</span>, <span class="st">&quot;seen_4&quot;</span>, <span class="st">&quot;seen_5&quot;</span>, <span class="st">&quot;seen_6&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;rank_1&quot;</span>, <span class="st">&quot;rank_2&quot;</span>, <span class="st">&quot;rank_3&quot;</span>, <span class="st">&quot;rank_4&quot;</span>, <span class="st">&quot;rank_5&quot;</span>, <span class="st">&quot;rank_6&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;han&quot;</span>,<span class="st">&quot;luke&quot;</span>,<span class="st">&quot;leia&quot;</span>,<span class="st">&quot;anakin&quot;</span>,<span class="st">&quot;obi&quot;</span>,<span class="st">&quot;palp&quot;</span>,<span class="st">&quot;vader&quot;</span>,<span class="st">&quot;lando&quot;</span>,<span class="st">&quot;boba&quot;</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;c3&quot;</span>,<span class="st">&quot;r2&quot;</span>,<span class="st">&quot;jar&quot;</span>,<span class="st">&quot;padme&quot;</span>,<span class="st">&quot;yoda&quot;</span>,<span class="st">&quot;shot_first&quot;</span>,<span class="st">&quot;familiar_eu&quot;</span>,<span class="st">&quot;fan_of_eu&quot;</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;trekkie&quot;</span>,<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>,<span class="st">&quot;house_income&quot;</span>,<span class="st">&quot;education&quot;</span>,<span class="st">&quot;location&quot;</span>]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>temp_columns <span class="op">=</span> df[<span class="dv">1</span>:].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>temp_columns.columns <span class="op">=</span> df.iloc[<span class="dv">0</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>fixed_names <span class="op">=</span> pd.DataFrame({<span class="st">&quot;First Row Columns&quot;</span>:df.iloc[<span class="dv">0</span>].values, <span class="st">&quot;New Column Names&quot;</span>: new_titles})</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fixed_names)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col_num <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df.columns)):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.rename(columns<span class="op">=</span>{df.columns[col_num]: new_titles[col_num]})</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the first row</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.iloc[<span class="dv">1</span>:].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                               First Row Columns New Column Names
+0                                            NaN               id
+1                                       Response      has_seen_sw
+2                                       Response        is_sw_fan
+3       Star Wars: Episode I  The Phantom Menace           seen_1
+4    Star Wars: Episode II  Attack of the Clones           seen_2
+5    Star Wars: Episode III  Revenge of the Sith           seen_3
+6              Star Wars: Episode IV  A New Hope           seen_4
+7   Star Wars: Episode V The Empire Strikes Back           seen_5
+8       Star Wars: Episode VI Return of the Jedi           seen_6
+9       Star Wars: Episode I  The Phantom Menace           rank_1
+10   Star Wars: Episode II  Attack of the Clones           rank_2
+11   Star Wars: Episode III  Revenge of the Sith           rank_3
+12             Star Wars: Episode IV  A New Hope           rank_4
+13  Star Wars: Episode V The Empire Strikes Back           rank_5
+14      Star Wars: Episode VI Return of the Jedi           rank_6
+15                                      Han Solo              han
+16                                Luke Skywalker             luke
+17                          Princess Leia Organa             leia
+18                              Anakin Skywalker           anakin
+19                                Obi Wan Kenobi              obi
+20                             Emperor Palpatine             palp
+21                                   Darth Vader            vader
+22                              Lando Calrissian            lando
+23                                     Boba Fett             boba
+24                                         C-3P0               c3
+25                                         R2 D2               r2
+26                                 Jar Jar Binks              jar
+27                                 Padme Amidala            padme
+28                                          Yoda             yoda
+29                                      Response       shot_first
+30                                      Response      familiar_eu
+31                                      Response        fan_of_eu
+32                                      Response          trekkie
+33                                      Response           gender
+34                                      Response              age
+35                                      Response     house_income
+36                                      Response        education
+37                                      Response         location</code></pre>
+</div>
+</div>
+</section>
+<section id="questiontask-2" class="level2">
+<h2 class="anchored" data-anchor-id="questiontask-2">QUESTION|TASK 2</h2>
+<p><strong>Clean and format the data so that it can be used in a machine learning model.</strong> As you format the data, you should complete each item listed below. In your final report provide example(s) of the reformatted data with a short description of the changes made.<br>
+a. Filter the dataset to respondents that have seen at least one film<br>
+a. Create a new column that converts the age ranges to a single number. Drop the age range categorical column<br>
+a. Create a new column that converts the education groupings to a single number. Drop the school categorical column<br>
+a. Create a new column that converts the income ranges to a single number. Drop the income range categorical column<br>
+a. Create your target (also known as “y” or “label”) column based on the new income range column a. One-hot encode all remaining categorical columns</p>
+<p><em>type your results and analysis here</em></p>
+<div id="0b6c7710" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>seen <span class="op">=</span> df[df[<span class="st">&quot;has_seen_sw&quot;</span>] <span class="op">==</span> <span class="st">&quot;Yes&quot;</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>seen[<span class="st">&quot;age&quot;</span>] <span class="op">=</span> seen[<span class="st">&quot;age&quot;</span>].<span class="bu">str</span>.split(<span class="st">&quot;-&quot;</span>).<span class="bu">str</span>[<span class="dv">1</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>eds <span class="op">=</span> {<span class="st">&quot;high school degree&quot;</span>: <span class="st">&quot;1&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;some college or associate degree&quot;</span>: <span class="st">&quot;2&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;bachelor degree&quot;</span>: <span class="st">&quot;3&quot;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;nan&quot;</span>: <span class="st">&quot;0&quot;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;graduate degree&quot;</span>: <span class="st">&quot;4&quot;</span>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>seen[<span class="st">&quot;education&quot;</span>] <span class="op">=</span> seen[<span class="st">&quot;education&quot;</span>].<span class="bu">str</span>.lower().<span class="bu">map</span>(eds).fillna(<span class="st">&quot;0&quot;</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>seen[<span class="st">&quot;house_income&quot;</span>] <span class="op">=</span> seen[<span class="st">&quot;house_income&quot;</span>].<span class="bu">str</span>.replace(<span class="vs">r&quot;[\$,+]&quot;</span>,<span class="st">&quot;&quot;</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.split(<span class="st">&quot; &quot;</span>).<span class="bu">str</span>[<span class="dv">0</span>]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>seen[<span class="st">&quot;house_income&quot;</span>] <span class="op">=</span> seen[<span class="st">&quot;house_income&quot;</span>].fillna(<span class="op">-</span><span class="dv">1</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>seen[<span class="st">&quot;location&quot;</span>] <span class="op">=</span> seen[<span class="st">&quot;location&quot;</span>].fillna(<span class="st">&quot;unknown&quot;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>seen <span class="op">=</span> pd.get_dummies(seen, columns <span class="op">=</span> [<span class="st">&quot;location&quot;</span>, <span class="st">&quot;rank_1&quot;</span>, <span class="st">&quot;rank_2&quot;</span>,<span class="st">&quot;rank_3&quot;</span>])</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">7</span>):</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  seen[<span class="st">&quot;seen_&quot;</span> <span class="op">+</span> <span class="bu">str</span>(i)] <span class="op">=</span> seen[<span class="st">&quot;seen_&quot;</span> <span class="op">+</span> <span class="bu">str</span>(i)].notna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="questiontask-3" class="level2">
+<h2 class="anchored" data-anchor-id="questiontask-3">QUESTION|TASK 3</h2>
+<p><strong>Validate that the data provided on GitHub lines up with the article by recreating 2 of the visuals from the article.</strong></p>
+<p><em>type your results and analysis here</em></p>
+<div id="15e8122b" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include and execute your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="269008fa" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include and execute your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="questiontask-4" class="level2">
+<h2 class="anchored" data-anchor-id="questiontask-4">QUESTION|TASK 4</h2>
+<p><strong>Build a machine learning model that predicts whether a person makes more than $50k. Describe your model and report the accuracy.</strong></p>
+<p><em>type your results and analysis here</em></p>
+<div id="70040f1b" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include and execute your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<hr>
+</section>
+<section id="stretch-questiontask-1" class="level2">
+<h2 class="anchored" data-anchor-id="stretch-questiontask-1">STRETCH QUESTION|TASK 1</h2>
+<p><strong>Build a machine learning model that predicts whether a person makes more than $50k. With accuracy of at least 65%. Describe your model and report the accuracy.</strong></p>
+<p><em>type your results and analysis here</em></p>
+<div id="8afdec20" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include and execute your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="other-stretch-questions-have-been-skipped" class="level2">
+<h2 class="anchored" data-anchor-id="other-stretch-questions-have-been-skipped">OTHER STRETCH QUESTIONS HAVE BEEN SKIPPED!</h2>
 
 
 </section>
