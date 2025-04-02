@@ -13,7 +13,7 @@ website:
     left: "David Wells 2025©"
     right: 
       - icon: linkedin
-        href: Your_LinkedIn_URL
+        href: https://www.linkedin.com/in/david-aaron-wells/
 
   navbar:
     background: primary
