@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - The War with Star Wars"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "David Wells"
 format:
   html:
     self-contained: true
@@ -25,4 +25,130 @@ execute:
     
 ---
 
-### Paste in a template
+```{python}
+import pandas as pd 
+import numpy as np
+from lets_plot import *
+# add the additional libraries you need to import for ML here
+
+LetsPlot.setup_html(isolated_frame=True)
+```
+
+
+```{python}
+# Learn morea about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html
+
+# import your data here using pandas and the URL
+url = 'https://github.com/fivethirtyeight/data/raw/master/star-wars-survey/StarWars.csv'
+df = pd.read_csv(url, encoding="ISO-8859-1")
+
+
+
+```
+
+## Elevator pitch
+_A SHORT (2-3 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._ (Note: this is not a summary of the project, but a summary of the results.)
+
+_A Client has requested this analysis and this is your one shot of what you would say to your boss in a 2 min elevator ride before he takes your report and hands it to the client._
+
+## QUESTION|TASK 1
+
+__Shorten the column names and clean them up for easier use with pandas.__ Provide a table or list that exemplifies how you fixed the names. 
+
+Here I'm showing the first row of the data instead of the columns. The columns just listed as "Response" have their full context in the original columns names. For those, I simply shortened them so I would have an easier time working with them. They were long.
+
+```{python}
+df = pd.read_csv(url, encoding="ISO-8859-1")
+
+new_titles = ["id","has_seen_sw","is_sw_fan",
+    "seen_1", "seen_2", "seen_3", "seen_4", "seen_5", "seen_6",
+    "rank_1", "rank_2", "rank_3", "rank_4", "rank_5", "rank_6",
+    "han","luke","leia","anakin","obi","palp","vader","lando","boba",
+    "c3","r2","jar","padme","yoda","shot_first","familiar_eu","fan_of_eu",
+    "trekkie","gender","age","house_income","education","location"]
+
+temp_columns = df[1:].reset_index(drop=True)
+temp_columns.columns = df.iloc[0]
+fixed_names = pd.DataFrame({"First Row Columns":df.iloc[0].values, "New Column Names": new_titles})
+print(fixed_names)
+
+for col_num in range(len(df.columns)):
+  df = df.rename(columns={df.columns[col_num]: new_titles[col_num]})
+
+# Remove the first row
+df = df.iloc[1:].reset_index(drop=True)
+
+```
+
+## QUESTION|TASK 2
+
+__Clean and format the data so that it can be used in a machine learning model.__ As you format the data, you should complete each item listed below. In your final report provide example(s) of the reformatted data with a short description of the changes made.  
+    a. Filter the dataset to respondents that have seen at least one film  
+    a. Create a new column that converts the age ranges to a single number. Drop the age range categorical column  
+    a. Create a new column that converts the education groupings to a single number. Drop the school categorical column  
+    a. Create a new column that converts the income ranges to a single number. Drop the income range categorical column  
+    a. Create your target (also known as “y” or “label”) column based on the new income range column
+    a. One-hot encode all remaining categorical columns   
+
+_type your results and analysis here_
+
+```{python}
+seen = df[df["has_seen_sw"] == "Yes"]
+seen["age"] = seen["age"].str.split("-").str[1]
+eds = {"high school degree": "1",
+       "some college or associate degree": "2",
+       "bachelor degree": "3",
+       "nan": "0",
+       "graduate degree": "4"}
+seen["education"] = seen["education"].str.lower().map(eds).fillna("0").astype(int)
+seen["house_income"] = seen["house_income"].str.replace(r"[\$,+]","", regex=True).str.split(" ").str[0]
+seen["house_income"] = seen["house_income"].fillna(-1).astype(int)
+seen["location"] = seen["location"].fillna("unknown")
+seen = pd.get_dummies(seen, columns = ["location", "rank_1", "rank_2","rank_3"])
+for i in range(1,7):
+  seen["seen_" + str(i)] = seen["seen_" + str(i)].notna()
+
+```
+
+## QUESTION|TASK 3
+
+__Validate that the data provided on GitHub lines up with the article by recreating 2 of the visuals from the article.__  
+
+_type your results and analysis here_
+
+```{python}
+# Include and execute your code here
+
+```
+
+```{python}
+# Include and execute your code here
+
+```
+
+## QUESTION|TASK 4
+
+__Build a machine learning model that predicts whether a person makes more than $50k. Describe your model and report the accuracy.__ 
+
+_type your results and analysis here_
+
+```{python}
+# Include and execute your code here
+
+```
+
+---
+
+## STRETCH QUESTION|TASK 1
+
+__Build a machine learning model that predicts whether a person makes more than $50k. With accuracy of at least 65%. Describe your model and report the accuracy.__
+
+_type your results and analysis here_
+
+```{python}
+# Include and execute your code here
+
+
+```
+
+## OTHER STRETCH QUESTIONS HAVE BEEN SKIPPED!
