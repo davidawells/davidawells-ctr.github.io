@@ -96,18 +96,32 @@ _type your results and analysis here_
 seen = df[df["has_seen_sw"] == "Yes"]
 seen["age"] = seen["age"].str.split("-").str[1]
 eds = {"high school degree": "1",
+       "nan": "0",
        "some college or associate degree": "2",
        "bachelor degree": "3",
-       "nan": "0",
        "graduate degree": "4"}
+scores = {"Neither favorably nor unfavorably (neutral)": "3",
+          "Somewhat favorably": '4', "Very favorably": '5',
+          "Somewhat unfavorably": '2', "Very unfavorably": '1',
+          "Unfamiliar (N/A)": '3'}
 seen["education"] = seen["education"].str.lower().map(eds).fillna("0").astype(int)
 seen["house_income"] = seen["house_income"].str.replace(r"[\$,+]","", regex=True).str.split(" ").str[0]
 seen["house_income"] = seen["house_income"].fillna(-1).astype(int)
 seen["location"] = seen["location"].fillna("unknown")
-seen = pd.get_dummies(seen, columns = ["location", "rank_1", "rank_2","rank_3"])
+seen = pd.get_dummies(seen, columns = ["location", "rank_1", "rank_2","rank_3", "rank_4", "rank_5", "rank_6", "shot_first", "trekkie","fan_of_eu","familiar_eu","gender"])
+for name in ["anakin","obi","palp","vader","lando","boba",'c3','r2','jar','padme','yoda','han','luke', 'leia']:
+  seen[name] = seen[name].map(scores)
+  seen[name] = seen[name].fillna("3")
+  seen[name] = seen[name].astype(int)
 for i in range(1,7):
   seen["seen_" + str(i)] = seen["seen_" + str(i)].notna()
 
+fan = {"Yes":"1",
+"No":"0"}
+seen["is_sw_fan"] = seen["is_sw_fan"].map(fan)
+seen["is_sw_fan"] = seen["is_sw_fan"].fillna("0")
+seen["is_sw_fan"] = seen["is_sw_fan"].astype(int)
+seen = seen.dropna()
 ```
 
 ## QUESTION|TASK 3
@@ -115,14 +129,34 @@ for i in range(1,7):
 __Validate that the data provided on GitHub lines up with the article by recreating 2 of the visuals from the article.__  
 
 _type your results and analysis here_
-
 ```{python}
-# Include and execute your code here
+sums = []
+total = seen[seen["has_seen_sw"] == "Yes"].count()["has_seen_sw"]
+seen = seen.drop("has_seen_sw", axis=1)
+for i in range(1,7):
+  sum = seen["seen_" + str(i)].sum()
+  sums.append(sum)
+
+print(sums)
+print(total)
+for i in range(0,6):
+  sums[i] = (sums[i] * 100) / total
+
+sums = pd.Series(sums)
+sums
+titles = pd.Series(["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith",
+        "A New Hope", "The Empire Strikes Back", "Return of the Jedi"])
+
+sw = pd.DataFrame({"Movie":titles,"Percentage":sums})
 
 ```
 
 ```{python}
 # Include and execute your code here
+p = ggplot(sw) + geom_bar(aes(x="Movie", y="Percentage"), stat="identity", fill="blue") + \
+    coord_flip() + ggtitle("Which ‘Star Wars’ Movies Have You Seen?")
+
+p
 
 ```
 
@@ -134,21 +168,32 @@ _type your results and analysis here_
 
 ```{python}
 # Include and execute your code here
+# Learn morea about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html
+from sklearn.model_selection import train_test_split
+# from sklearn import tree_sitter_language
+from sklearn.naive_bayes import GaussianNB
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn import metrics
+from sklearn import tree
+from sklearn.ensemble import RandomForestClassifier
+```
 
+```{python}
+X_pred = seen.drop("house_income", axis=1)
+y_pred = seen["house_income"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+  X_pred, y_pred, test_size = .3, random_state = 76
+)
+
+clf = GradientBoostingClassifier(warm_start = False, n_estimators=100, learning_rate=0.01, random_state=76)
+clf = clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+
+print(f"Train Accuracy: {clf.score(X_train, y_train):.4f}")
+print(f"Test Accuracy: {clf.score(X_test, y_test):.4f}")
+print("max depth: ", str(m))
 ```
 
 ---
-
-## STRETCH QUESTION|TASK 1
-
-__Build a machine learning model that predicts whether a person makes more than $50k. With accuracy of at least 65%. Describe your model and report the accuracy.__
-
-_type your results and analysis here_
-
-```{python}
-# Include and execute your code here
-
-
-```
-
-## OTHER STRETCH QUESTIONS HAVE BEEN SKIPPED!
+## ALL STRETCH QUESTIONS HAVE BEEN SKIPPED! I AM SO TIRED!
